@@ -1,0 +1,29 @@
+{
+	"name": "now-stamp",
+	"version": "3.0.1",
+	"description": "Insert inline timestamps with @now; day labels update when you re-read notes.",
+	"main": "main.js",
+	"author": "isodesne",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/isodesne/now-stamp.git"
+	},
+	"keywords": ["obsidian", "obsidian-plugin", "journaling", "timestamp"],
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"test": "node scripts/test-relative.mjs"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@codemirror/state": "^6.5.0",
+		"@codemirror/view": "^6.38.0",
+		"@types/node": "^16.11.6",
+		"esbuild": "0.25.5",
+		"tslib": "2.4.0",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"obsidian": "latest"
+	}
+}

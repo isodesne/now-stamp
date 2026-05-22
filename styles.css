@@ -1,0 +1,8 @@
+time.now-stamp,
+span.now-stamp {
+	display: inline;
+}
+
+.now-stamp--muted {
+	color: var(--text-muted);
+}
