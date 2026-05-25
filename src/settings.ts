@@ -41,8 +41,6 @@ export class DynamicStampSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Now Stamp" });
-
 		new Setting(containerEl)
 			.setName("Time format")
 			.setDesc("12-hour (11:50 AM) or 24-hour (11:50).")

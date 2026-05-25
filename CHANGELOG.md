@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.1
+
+Compliance pass against the Obsidian plugin guidelines, in preparation for submission to the community plugin store. No user-visible behavior change.
+
+- Removed the top-level "Now Stamp" heading from the settings tab (guideline forbids top-level headings in settings).
+- Rewrote the manifest description to start with a verb and remove the em-dash and arrow characters (guideline: no special characters; start with action verbs).
+- Documented the internal CodeMirror 6 `EditorView` access used by the refresh path.
+
 ## 4.0.0
 
 **Renamed: "Now Stamp" → "Dynamic Stamp"** to better describe the plugin's defining feature: day labels that stay alive across days.

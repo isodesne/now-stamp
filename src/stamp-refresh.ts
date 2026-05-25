@@ -58,7 +58,12 @@ export function refreshAllLivePreviewStamps(
 		//    any duplicated copies CM6 keeps in measurement/mirror DOM.
 		processStampsInRoot(view.containerEl, plugin);
 
-		// 2) Also poke our ViewPlugin so its widget (where it does render) rebuilds.
+		// 2) Also poke our ViewPlugin so its widget (where it does render)
+		//    rebuilds. Obsidian's public `Editor` interface does not expose the
+		//    underlying CodeMirror 6 `EditorView`, but it is reachable at runtime
+		//    via `editor.cm`. Dispatching a no-op transaction with
+		//    `refreshStampsEffect` forces the ViewPlugin's `update()` to re-run
+		//    and rebuild decorations against the current date.
 		const cm = (view.editor as unknown as { cm?: EditorView }).cm;
 		if (cm) {
 			cm.dispatch({ effects: refreshStampsEffect.of(null) });
