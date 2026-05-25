@@ -1,7 +1,7 @@
 {
 	"id": "now-stamp",
 	"name": "Now Stamp",
-	"version": "3.0.1",
+	"version": "3.0.3",
 	"minAppVersion": "1.1.13",
 	"description": "Insert inline timestamps with @now; day labels update when you re-read notes (Today, Yesterday, weekday).",
 	"author": "isodesne",

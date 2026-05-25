@@ -6,8 +6,10 @@ import {
 	WidgetType,
 	type ViewUpdate,
 } from "@codemirror/view";
-import { RangeSetBuilder } from "@codemirror/state";
+import { RangeSetBuilder, StateEffect } from "@codemirror/state";
 import { editorLivePreviewField } from "obsidian";
+
+export const refreshStampsEffect = StateEffect.define<null>();
 import {
 	findStampsInLine,
 	formatStampDisplay,

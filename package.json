@@ -1,6 +1,6 @@
 {
 	"name": "now-stamp",
-	"version": "3.0.1",
+	"version": "3.0.3",
 	"description": "Insert inline timestamps with @now; day labels update when you re-read notes.",
 	"main": "main.js",
 	"author": "isodesne",

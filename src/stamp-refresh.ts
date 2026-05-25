@@ -1,6 +1,8 @@
 import { MarkdownView, type App } from "obsidian";
+import type { EditorView } from "@codemirror/view";
 import { isLabelOnlyStamp, readStampMs } from "./stamp-element";
 import { formatDynamicLabelOnly, formatDynamicStamp } from "./relative";
+import { refreshStampsEffect } from "./stamp-live-preview";
 import type NowStampPlugin from "./main";
 
 export function processStampsInRoot(
@@ -37,5 +39,29 @@ export function refreshAllReadingStamps(
 		if (!(view instanceof MarkdownView)) return;
 		if (view.getMode() !== "preview") return;
 		processStampsInRoot(view.containerEl, plugin);
+	});
+}
+
+export function refreshAllLivePreviewStamps(
+	app: App,
+	plugin: NowStampPlugin,
+): void {
+	app.workspace.iterateAllLeaves((leaf) => {
+		const { view } = leaf;
+		if (!(view instanceof MarkdownView)) return;
+		if (view.getMode() !== "source") return;
+
+		// 1) Direct DOM mutation for HTML-widget-rendered stamps in Live Preview.
+		//    Obsidian's inline HTML widget caches its post-processor output; our
+		//    CM ViewPlugin replace-decoration may not be the visible layer.
+		//    Mutating textContent works regardless. Use containerEl so we cover
+		//    any duplicated copies CM6 keeps in measurement/mirror DOM.
+		processStampsInRoot(view.containerEl, plugin);
+
+		// 2) Also poke our ViewPlugin so its widget (where it does render) rebuilds.
+		const cm = (view.editor as unknown as { cm?: EditorView }).cm;
+		if (cm) {
+			cm.dispatch({ effects: refreshStampsEffect.of(null) });
+		}
 	});
 }
