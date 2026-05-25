@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.0.0
+
+**Renamed: "Now Stamp" → "Dynamic Stamp"** to better describe the plugin's defining feature: day labels that stay alive across days.
+
+- Plugin id changed: `now-stamp` → `dynamic-stamp`.
+- GitHub repository moved: `github.com/isodesne/now-stamp` → `github.com/isodesne/dynamic-stamp` (old URL still redirects).
+- No functional changes vs. 3.0.3.
+
+### Migration from 3.x
+
+1. Delete the old plugin folder `YOUR_VAULT/.obsidian/plugins/now-stamp/`.
+2. Install Dynamic Stamp into `YOUR_VAULT/.obsidian/plugins/dynamic-stamp/` (download `main.js`, `manifest.json`, `styles.css` from the latest release).
+3. Existing stamped notes continue to render correctly — the underlying HTML markers (`<span class="now-stamp ts-...">`) are intentionally unchanged for backward compatibility.
+
 ## 3.0.3
 
 - Fix: Live Preview still showed stale day labels in some cases even after the 3.0.2 refresh hooks. Obsidian renders inline HTML through a widget that caches its post-processor output, and the visible nodes can be in a mirror/measurement copy of the DOM not covered by a narrow scan.

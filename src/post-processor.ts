@@ -1,11 +1,11 @@
 import { MarkdownRenderChild } from "obsidian";
 import { processStampsInRoot } from "./stamp-refresh";
-import type NowStampPlugin from "./main";
+import type DynamicStampPlugin from "./main";
 
 class StampRenderChild extends MarkdownRenderChild {
 	constructor(
 		containerEl: HTMLElement,
-		private plugin: NowStampPlugin,
+		private plugin: DynamicStampPlugin,
 	) {
 		super(containerEl);
 	}
@@ -17,7 +17,7 @@ class StampRenderChild extends MarkdownRenderChild {
 	}
 }
 
-export function registerStampPostProcessor(plugin: NowStampPlugin): void {
+export function registerStampPostProcessor(plugin: DynamicStampPlugin): void {
 	plugin.registerMarkdownPostProcessor((el, ctx) => {
 		processStampsInRoot(el, plugin);
 		ctx.addChild(new StampRenderChild(el, plugin));

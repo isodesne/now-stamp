@@ -3,11 +3,11 @@ import type { EditorView } from "@codemirror/view";
 import { isLabelOnlyStamp, readStampMs } from "./stamp-element";
 import { formatDynamicLabelOnly, formatDynamicStamp } from "./relative";
 import { refreshStampsEffect } from "./stamp-live-preview";
-import type NowStampPlugin from "./main";
+import type DynamicStampPlugin from "./main";
 
 export function processStampsInRoot(
 	root: ParentNode,
-	plugin: NowStampPlugin,
+	plugin: DynamicStampPlugin,
 ): void {
 	if (!plugin.settings.relativeDates) return;
 
@@ -32,7 +32,7 @@ export function processStampsInRoot(
 
 export function refreshAllReadingStamps(
 	app: App,
-	plugin: NowStampPlugin,
+	plugin: DynamicStampPlugin,
 ): void {
 	app.workspace.iterateAllLeaves((leaf) => {
 		const { view } = leaf;
@@ -44,7 +44,7 @@ export function refreshAllReadingStamps(
 
 export function refreshAllLivePreviewStamps(
 	app: App,
-	plugin: NowStampPlugin,
+	plugin: DynamicStampPlugin,
 ): void {
 	app.workspace.iterateAllLeaves((leaf) => {
 		const { view } = leaf;

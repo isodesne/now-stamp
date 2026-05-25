@@ -1,5 +1,5 @@
 import { formatDynamicLabelOnly, formatDynamicStamp } from "./relative";
-import type { NowStampSettings } from "./settings";
+import type { DynamicStampSettings } from "./settings";
 
 export interface StampMatch {
 	from: number;
@@ -68,7 +68,7 @@ export function findStampsInLine(lineText: string): StampMatch[] {
 
 export function formatStampDisplay(
 	ms: number,
-	settings: NowStampSettings,
+	settings: DynamicStampSettings,
 	labelOnly: boolean,
 	view: Date = new Date(),
 ): string {

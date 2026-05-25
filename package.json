@@ -1,12 +1,12 @@
 {
-	"name": "now-stamp",
-	"version": "3.0.3",
-	"description": "Insert inline timestamps with @now; day labels update when you re-read notes.",
+	"name": "dynamic-stamp",
+	"version": "4.0.0",
+	"description": "Inline timestamps for Obsidian whose day label stays alive — Today, Yesterday, weekday, date.",
 	"main": "main.js",
 	"author": "isodesne",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/isodesne/now-stamp.git"
+		"url": "https://github.com/isodesne/dynamic-stamp.git"
 	},
 	"keywords": ["obsidian", "obsidian-plugin", "journaling", "timestamp"],
 	"scripts": {

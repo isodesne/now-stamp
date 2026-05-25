@@ -14,7 +14,7 @@ import {
 	findStampsInLine,
 	formatStampDisplay,
 } from "./stamp-markers";
-import type NowStampPlugin from "./main";
+import type DynamicStampPlugin from "./main";
 
 class StampDisplayWidget extends WidgetType {
 	constructor(
@@ -44,7 +44,7 @@ class StampDisplayWidget extends WidgetType {
 
 function buildDecorations(
 	view: EditorView,
-	plugin: NowStampPlugin,
+	plugin: DynamicStampPlugin,
 ): DecorationSet {
 	if (!plugin.settings.relativeDates) {
 		return Decoration.none;
@@ -91,7 +91,7 @@ function buildDecorations(
 	return builder.finish();
 }
 
-export function stampLivePreviewExtension(plugin: NowStampPlugin) {
+export function stampLivePreviewExtension(plugin: DynamicStampPlugin) {
 	return ViewPlugin.fromClass(
 		class {
 			decorations: DecorationSet;

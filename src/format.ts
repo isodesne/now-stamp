@@ -4,9 +4,9 @@ import {
 	formatDynamicLabelOnly,
 	formatDynamicStamp,
 } from "./relative";
-import type { NowStampSettings } from "./settings";
+import type { DynamicStampSettings } from "./settings";
 
-export type TimeFormat = NowStampSettings["timeFormat"];
+export type TimeFormat = DynamicStampSettings["timeFormat"];
 export type LabelOnly = "Today" | "Yesterday";
 
 export function formatTime(date: Date, timeFormat: TimeFormat): string {
@@ -25,7 +25,7 @@ export function formatTime(date: Date, timeFormat: TimeFormat): string {
 }
 
 /** Static stamp (legacy / relative dates off). */
-export function formatStamp(date: Date, settings: NowStampSettings): string {
+export function formatStamp(date: Date, settings: DynamicStampSettings): string {
 	const time = formatTime(date, settings.timeFormat);
 	if (settings.includeDayLabel) {
 		return `Today ${time}`;
@@ -37,14 +37,14 @@ export function formatLabelOnly(label: LabelOnly): string {
 	return `${label} `;
 }
 
-export function wrapStamp(text: string, settings: NowStampSettings): string {
+export function wrapStamp(text: string, settings: DynamicStampSettings): string {
 	if (!settings.styleTimestamps) {
 		return text;
 	}
 	return `<span class="now-stamp now-stamp--muted">${text}</span>`;
 }
 
-export function buildFullStampInsert(date: Date, settings: NowStampSettings): string {
+export function buildFullStampInsert(date: Date, settings: DynamicStampSettings): string {
 	if (settings.relativeDates) {
 		const text = formatDynamicStamp(date, settings);
 		return buildDynamicSpan(text, date, settings);
@@ -55,7 +55,7 @@ export function buildFullStampInsert(date: Date, settings: NowStampSettings): st
 
 export function buildLabelOnlyInsert(
 	label: LabelOnly,
-	settings: NowStampSettings,
+	settings: DynamicStampSettings,
 	at: Date = new Date(),
 ): string {
 	if (label === "Today" && settings.todayTriggerIncludesTime) {

@@ -1,9 +1,9 @@
 import { MarkdownView, Plugin } from "obsidian";
 import {
 	DEFAULT_SETTINGS,
-	NowStampSettingTab,
+	DynamicStampSettingTab,
 	normalizeTriggerPhrase,
-	type NowStampSettings,
+	type DynamicStampSettings,
 } from "./settings";
 import { registerStampPostProcessor } from "./post-processor";
 import {
@@ -14,8 +14,8 @@ import {
 import { stampLivePreviewExtension } from "./stamp-live-preview";
 import { StampSuggest } from "./stamp-suggest";
 
-export default class NowStampPlugin extends Plugin {
-	settings: NowStampSettings = DEFAULT_SETTINGS;
+export default class DynamicStampPlugin extends Plugin {
+	settings: DynamicStampSettings = DEFAULT_SETTINGS;
 	private midnightTimerId: number | null = null;
 	private viewObservers: WeakMap<MarkdownView, MutationObserver> =
 		new WeakMap();
@@ -27,7 +27,7 @@ export default class NowStampPlugin extends Plugin {
 		this.registerEditorExtension(stampLivePreviewExtension(this));
 		this.app.workspace.updateOptions();
 		registerStampPostProcessor(this);
-		this.addSettingTab(new NowStampSettingTab(this.app, this));
+		this.addSettingTab(new DynamicStampSettingTab(this.app, this));
 
 		this.registerEvent(
 			this.app.workspace.on("active-leaf-change", () => {
@@ -73,7 +73,7 @@ export default class NowStampPlugin extends Plugin {
 	}
 
 	async loadSettings(): Promise<void> {
-		const data = (await this.loadData()) as Partial<NowStampSettings> | null;
+		const data = (await this.loadData()) as Partial<DynamicStampSettings> | null;
 		this.settings = { ...DEFAULT_SETTINGS, ...(data ?? {}) };
 		this.settings.triggerPhrase =
 			normalizeTriggerPhrase(this.settings.triggerPhrase) ??

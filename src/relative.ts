@@ -1,6 +1,6 @@
 import { formatTime } from "./format";
 import { stampClassList } from "./stamp-element";
-import type { NowStampSettings } from "./settings";
+import type { DynamicStampSettings } from "./settings";
 
 function escapeHtml(text: string): string {
 	return text
@@ -60,7 +60,7 @@ export function anchorForLabelOnly(label: "Today" | "Yesterday", at: Date = new 
 
 export function formatDynamicStamp(
 	stamp: Date,
-	settings: NowStampSettings,
+	settings: DynamicStampSettings,
 	view: Date = new Date(),
 ): string {
 	const time = formatTime(stamp, settings.timeFormat);
@@ -80,7 +80,7 @@ export function formatDynamicLabelOnly(
 export function buildDynamicSpan(
 	displayText: string,
 	stamp: Date,
-	settings: NowStampSettings,
+	settings: DynamicStampSettings,
 	labelOnly = false,
 ): string {
 	const ts = stamp.getTime();

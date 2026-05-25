@@ -1,7 +1,7 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
-import type NowStampPlugin from "./main";
+import type DynamicStampPlugin from "./main";
 
-export interface NowStampSettings {
+export interface DynamicStampSettings {
 	timeFormat: "12h" | "24h";
 	includeDayLabel: boolean;
 	triggerPhrase: string;
@@ -11,7 +11,7 @@ export interface NowStampSettings {
 	relativeDates: boolean;
 }
 
-export const DEFAULT_SETTINGS: NowStampSettings = {
+export const DEFAULT_SETTINGS: DynamicStampSettings = {
 	timeFormat: "12h",
 	includeDayLabel: true,
 	triggerPhrase: "@now",
@@ -29,10 +29,10 @@ export function normalizeTriggerPhrase(value: string): string | null {
 	return trimmed;
 }
 
-export class NowStampSettingTab extends PluginSettingTab {
-	plugin: NowStampPlugin;
+export class DynamicStampSettingTab extends PluginSettingTab {
+	plugin: DynamicStampPlugin;
 
-	constructor(app: App, plugin: NowStampPlugin) {
+	constructor(app: App, plugin: DynamicStampPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}

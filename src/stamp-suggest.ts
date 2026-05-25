@@ -13,7 +13,7 @@ import {
 	stripHtml,
 	type LabelOnly,
 } from "./format";
-import type NowStampPlugin from "./main";
+import type DynamicStampPlugin from "./main";
 
 export type TriggerKind = "full" | "label";
 
@@ -33,9 +33,9 @@ function matchEndOfLine(line: string, phrase: string): RegExpMatchArray | null {
 }
 
 export class StampSuggest extends EditorSuggest<StampSuggestion> {
-	plugin: NowStampPlugin;
+	plugin: DynamicStampPlugin;
 
-	constructor(plugin: NowStampPlugin) {
+	constructor(plugin: DynamicStampPlugin) {
 		super(plugin.app);
 		this.plugin = plugin;
 	}
