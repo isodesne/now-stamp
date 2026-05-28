@@ -1,7 +1,7 @@
 {
 	"id": "dynamic-stamp",
 	"name": "Dynamic Stamp",
-	"version": "4.0.1",
+	"version": "1.0.0",
 	"minAppVersion": "1.1.13",
 	"description": "Insert inline timestamps whose day label updates over time, showing Today, Yesterday, weekday, or short date as the note ages.",
 	"author": "isodesne",

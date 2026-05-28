@@ -1,6 +1,6 @@
 {
 	"name": "dynamic-stamp",
-	"version": "4.0.1",
+	"version": "1.0.0",
 	"description": "Inline timestamps for Obsidian whose day label stays alive — Today, Yesterday, weekday, date.",
 	"main": "main.js",
 	"author": "isodesne",
