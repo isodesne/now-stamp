@@ -70,14 +70,6 @@ npm test         # unit + stress tests
 
 To test locally, copy `main.js`, `manifest.json`, and `styles.css` into your vault's `.obsidian/plugins/dynamic-stamp/` folder and reload the plugin.
 
-## Migrating from "Now Stamp"
-
-Dynamic Stamp is the renamed successor of "Now Stamp" (v3.x). If you used Now Stamp:
-
-1. Delete the old `.obsidian/plugins/now-stamp/` folder.
-2. Install Dynamic Stamp as above.
-3. Existing stamped notes continue to work — the underlying HTML markers are unchanged.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
